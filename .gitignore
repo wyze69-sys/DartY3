@@ -1,0 +1,13 @@
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+coverage/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
