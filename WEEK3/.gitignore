@@ -1,0 +1,8 @@
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+coverage/
+.vscode/
+*.log
