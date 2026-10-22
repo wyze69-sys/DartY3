@@ -8,7 +8,7 @@ class LmsSystem {
   final List<CourseResult> results = [];
 
   void addStudent({required String studentId, required String studentName}) {
-    // ! Student shall not exist already
+  
     Student? student = _findStudentOrNull(studentId);
     if (student != null) {
       throw Exception('Student $studentId already exists');
@@ -17,18 +17,24 @@ class LmsSystem {
     students.add(Student(id: studentId, name: studentName));
   }
 
+
+
+
   void removeStudent({required String studentId}) {
     Student? student = _findStudentOrNull(studentId);
     if (student == null) {
       throw Exception('Student $studentId not found');
     }
-    // 1- Remove student from the students list
+
     students.removeWhere((student) => student.id == studentId);
     for (Course course in courses) {
       course.studentIds.remove(studentId);
     }
     results.removeWhere((result) => result.studentId == studentId);
   }
+
+
+
 
   void addCourse({required String courseId, required String courseName}) {
     Course? course = _findCourseOrNull(courseId);
@@ -37,6 +43,8 @@ class LmsSystem {
     }
     courses.add(Course(id: courseId, name: courseName));
   }
+
+
 
   void removeCourse({required String courseId}) {
     Course? course = _findCourseOrNull(courseId);
@@ -47,6 +55,8 @@ class LmsSystem {
     results.removeWhere((result) => result.courseId == courseId);
     courses.remove(course);
   }
+
+
 
   void enrollStudent({required String studentId, required String courseId}) {
     if (_findStudentOrNull(studentId) == null) {
@@ -61,6 +71,8 @@ class LmsSystem {
     }
     course.studentIds.add(studentId);
   }
+
+
 
   void discardStudentFromCourse({
     required String studentId,
@@ -81,6 +93,8 @@ class LmsSystem {
       (result) => result.studentId == studentId && result.courseId == courseId,
     );
   }
+
+
 
   void addResult({
     required String studentId,
@@ -110,6 +124,7 @@ class LmsSystem {
     ));
   }
 
+
   void removeResult({required String studentId, required String courseId}) {
     CourseResult? result = _findResultOrNull(studentId, courseId);
     if (result == null) {
@@ -118,14 +133,17 @@ class LmsSystem {
     results.remove(result);
   }
 
+
+
   Student? _findStudentOrNull(String studentId) {
     for (Student s in students) {
       if (s.id == studentId) {
         return s;
       }
     }
-    return null; // not found
+    return null; 
   }
+
 
   Course? _findCourseOrNull(String courseId) {
     for (Course course in courses) {
@@ -135,6 +153,8 @@ class LmsSystem {
     }
     return null;
   }
+
+  
 
   CourseResult? _findResultOrNull(String studentId, String courseId) {
     for (CourseResult result in results) {
