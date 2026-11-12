@@ -1,0 +1,21 @@
+name: week6_widgets
+description: Week 6 stateless widget exercises
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/ex3/
+    - assets/ex4/
