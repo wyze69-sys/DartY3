@@ -6,7 +6,7 @@ class ProfileData {
   final String avatarUrl;
   final List<TileData> tiles;
 
-  ProfileData({
+  const ProfileData({
     required this.name,
     required this.position,
     required this.tiles,
@@ -19,5 +19,9 @@ class TileData {
   final String title;
   final String value;
 
-  TileData({required this.icon, required this.title, required this.value});
+  const TileData({
+    required this.icon,
+    required this.title,
+    required this.value,
+  });
 }
